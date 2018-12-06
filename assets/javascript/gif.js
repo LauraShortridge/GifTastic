@@ -89,6 +89,12 @@ function displayImages() {
 
             //Create element to hold image
             image = $("<img>").attr("src", imgURL);
+
+            image.addClass("image-gif"); 
+            image.attr("data-animate", imgURLAnimate);
+            image.attr("data-still", imgURL);
+            image.attr("data-state", "still");
+
             // let imageAnimate = $("<img>").attr("src", imgURLAnimate);
 
             //Display the image
@@ -100,35 +106,38 @@ function displayImages() {
             
         }
 
-        $(document).on("click", "img", function () {
-
-            console.log("animate image");
-
-            console.log(this);
-
-            //This works to get rid of the image
-            // $(".image").click(function(e) {
-            //     $(e.target).remove(); 
-            // });
-
-            if ($(".still")) {
-                (console.log("it's still!"));
-                imageAnimate = $("<img>").attr("src", imgURLAnimate);
-                imageDiv.append(imageAnimate);
-                $("#display-images").prepend(imageDiv);
-            }
-
-            // } else if ("class" === imageAnimate) {
-            //     image = $("<img>").attr("src", imgURL);
-            //     imageDiv.append(image);
-            //     $("#display-images").prepend(imageDiv);
-            // }
-
-        });
-
     });
 
 }
+
+$(document).on("click", ".image-gif", function () {
+
+    console.log("animate image");
+
+    console.log(this);
+
+    let state = $(this).attr("data-state");
+
+    //This works to get rid of the image
+    // $(".image").click(function(e) {
+    //     $(e.target).remove(); 
+    // });
+
+    if (state === "still") {
+        (console.log("it's still!"));
+        $(this).attr("data-state")
+        imageAnimate = image.attr("src", imgURLAnimate);
+        // imageDiv.html(imageAnimate);
+        $("#display-images").prepend(imageDiv);
+    }
+
+    // } else if ("class" === imageAnimate) {
+    //     image = $("<img>").attr("src", imgURL);
+    //     imageDiv.append(image);
+    //     $("#display-images").prepend(imageDiv);
+    // }
+
+});
 
 $("#find-search").on("click", function (event) {
     event.preventDefault();
