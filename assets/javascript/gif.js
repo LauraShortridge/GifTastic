@@ -67,7 +67,7 @@ function displayImages() {
 
         for (i = 0; i < 10; i++) {
             //Div to hold the image:
-            let imageDiv = $("<div class='image'>");
+            imageDiv = $("<div class='image'>");
 
             //Store the rating data
             let rating = response.data[i].rating;
@@ -77,8 +77,8 @@ function displayImages() {
             imageDiv.append(rp);
 
             //Get URL for images
-            let imgURL = response.data[i].images.original_still.url;
-            let imgURLAnimate = response.data[i].images.original.url;
+            imgURL = response.data[i].images.original_still.url;
+            imgURLAnimate = response.data[i].images.original.url;
 
             imageDiv.addClass("still"); 
 
@@ -88,7 +88,7 @@ function displayImages() {
             // imageDiv.append(still);
 
             //Create element to hold image
-            let image = $("<img>").attr("src", imgURL);
+            image = $("<img>").attr("src", imgURL);
             // let imageAnimate = $("<img>").attr("src", imgURLAnimate);
 
             //Display the image
@@ -117,7 +117,7 @@ function displayImages() {
                 imageDiv.append(imageAnimate);
                 $("#display-images").prepend(imageDiv);
             }
-            
+
             // } else if ("class" === imageAnimate) {
             //     image = $("<img>").attr("src", imgURL);
             //     imageDiv.append(image);
@@ -147,23 +147,3 @@ $("#find-search").on("click", function (event) {
 $(document).on("click", ".display-btn", displayImages);
 
 makeButtons(); 
-
-
-
-
-
-// if (state === "still") {
-            //     $(this).attr("src", $(this).attr("data-animate"));
-            //     $(this).attr("data-state", "animate");
-            //   } else {
-            //     $(this).attr("src", $(this).attr("data-still"));
-            //     $(this).attr("data-state", "still");
-            //   }
-
-            // for (i = 0; i < 10; i++) {
-            //     let imageDiv = $("<div class='image'>");
-            //     imgURL = response.data[i].images.original.url; 
-            //     let image = $("<img>").attr("src", imgURL); 
-            //     imageDiv.append(image); 
-            //     $("#display-images").html(imageDiv);
-            // }
