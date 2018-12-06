@@ -1,0 +1,14 @@
+button {
+    margin: 15px 15px 0 0; 
+
+}
+
+.image {
+    float: left; 
+    margin-left: 20px; 
+}
+
+img {
+    height: 250px;
+    width: 250px; 
+}
