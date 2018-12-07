@@ -82,11 +82,6 @@ function displayImages() {
 
             imageDiv.addClass("still"); 
 
-            //This does NOT work:
-            // imgURL.attr("data-state", "still");
-            // let still = $("imgURL").addClass("still"); 
-            // imageDiv.append(still);
-
             //Create element to hold image
             image = $("<img>").attr("src", imgURL);
 
@@ -95,11 +90,8 @@ function displayImages() {
             image.attr("data-still", imgURL);
             image.attr("data-state", "still");
 
-            // let imageAnimate = $("<img>").attr("src", imgURLAnimate);
-
             //Display the image
             imageDiv.append(image);
-            // imageDiv.append(imageAnimate);
 
             $("#display-images").prepend(imageDiv);
 
@@ -118,24 +110,13 @@ $(document).on("click", ".image-gif", function () {
 
     let state = $(this).attr("data-state");
 
-    //This works to get rid of the image
-    // $(".image").click(function(e) {
-    //     $(e.target).remove(); 
-    // });
-
     if (state === "still") {
-        (console.log("it's still!"));
-        $(this).attr("data-state")
-        imageAnimate = image.attr("src", imgURLAnimate);
-        // imageDiv.html(imageAnimate);
-        $("#display-images").prepend(imageDiv);
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    } else if (state === "animate") {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
     }
-
-    // } else if ("class" === imageAnimate) {
-    //     image = $("<img>").attr("src", imgURL);
-    //     imageDiv.append(image);
-    //     $("#display-images").prepend(imageDiv);
-    // }
 
 });
 
